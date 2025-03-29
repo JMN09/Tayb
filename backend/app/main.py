@@ -1,8 +1,8 @@
 # backend/app/main.py
 from fastapi import FastAPI
-# from app.api import users
-# from app.models import Base
-# from app.core.database import engine
+from app.api import users
+from app.models import Base
+from app.core.database import engine
 
 app = FastAPI(
     title="Tayib API",
@@ -11,10 +11,10 @@ app = FastAPI(
 )
 
 # Create all tables on startup
-# Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 # Include routers
-# app.include_router(users.router, prefix="/users", tags=["users"])
+app.include_router(users.router, prefix="/users", tags=["users"])
 
 @app.get("/")
 def root():
