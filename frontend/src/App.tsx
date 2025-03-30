@@ -1,26 +1,28 @@
+// App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import RegisterPage from './pages/RegisterPage';
 
-function App() {
+function Home() {
+  const navigate = useNavigate();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+      <h1>Welcome to Tayib</h1>
+      <button
+        style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}
+        onClick={() => navigate('/register')}
+      >
+        Register
+      </button>
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/register" element={<RegisterPage />} />
+    </Routes>
+  );
+}
