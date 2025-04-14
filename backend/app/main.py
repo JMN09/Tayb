@@ -4,12 +4,17 @@ from app.api import users
 from app.models import Base
 from app.core.database import engine
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
+
 
 app = FastAPI(
     title="Tayib API",
     description="FastAPI backend for the Tayib web application",
     version="0.1.0"
 )
+
+app.mount("/assets", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "assets")), name="assets")
 
 app.add_middleware(
     CORSMiddleware,

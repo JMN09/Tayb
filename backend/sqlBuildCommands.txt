@@ -1,0 +1,24 @@
+INSERT INTO cuisines (name)
+VALUES 
+  ('Lebanese'),
+  ('Italian'),
+  ('French'),
+  ('Thailandian'),
+  ('Indian'),
+  ('Japanese'),
+  ('Other');
+
+
+INSERT INTO restaurants (name, location, rating, cuisine_id)
+VALUES
+  ('Al Falamanki', 'Beirut', 5, 1),
+  ('Em Sherif', 'Beirut', 4, 1),
+  ('Tavolina', 'Beirut', 4, 2),
+  ('Mondo', 'Jounieh', 3, 2),
+  ('L’Escroc', 'Hazmieh', 4, 3),
+  ('Le Chef', 'Gemmayzeh', 5, 3),
+  ('Baan Thai', 'Jounieh', 4, 4),
+  ('Little India', 'Hamra', 4, 5),
+  ('Osaka Sushi', 'Achrafieh', 5, 6),
+  ('Soto', 'Dbayeh', 4, 6),
+  ('Snack el 7ay', 'Tripoli', 3, 7);
