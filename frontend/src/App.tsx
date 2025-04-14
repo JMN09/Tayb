@@ -1,28 +1,18 @@
-// App.tsx
+// src/App.tsx
 import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import RegisterPage from './pages/RegisterPage';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage'; // previously created
 
-function Home() {
-  const navigate = useNavigate();
-  return (
-    <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-      <h1>Welcome to Tayib</h1>
-      <button
-        style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}
-        onClick={() => navigate('/register')}
-      >
-        Register
-      </button>
-    </div>
-  );
-}
-
-export default function App() {
+function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }
+
+export default App;

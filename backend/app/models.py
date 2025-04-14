@@ -41,6 +41,19 @@ class Restaurant(Base):
     # Relationship to Cuisine
     cuisine = relationship("Cuisine", back_populates="restaurants")
 
+    def __repr__(self):
+        return f"<Restaurant id={self.id} name={self.name}>"
+
+    def __json__(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "location": self.location,
+            "image_url": self.image_url,
+            "rating": self.rating,
+            "cuisine_id": self.cuisine_id
+        }
+
 
 class Banner(Base):
     __tablename__ = "banners"

@@ -20,3 +20,8 @@ export interface User {
     username: string;
     email: string;
 }
+
+export async function getRestaurants() {
+  const res = await fetch('http://localhost:8000/restaurants/');
+  return await res.json();
+}
