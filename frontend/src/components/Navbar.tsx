@@ -20,13 +20,18 @@ const Navbar: React.FC = () => {
 
         {isLoggedIn ? (
           <Box sx={{ display: 'flex', gap: 2 }}>
-            <Button component={Link} to="/chat" variant="outlined" color="inherit">
-              Tayb.ai
-            </Button>
-            <Button variant="contained" color="success" onClick={logout}>
-              Logout
-            </Button>
-          </Box>
+          {/* NEW browse button */}
+          <Button component={Link} to="/browse" variant="outlined" color="inherit">
+            Browse
+          </Button>
+      
+          <Button component={Link} to="/chat" variant="outlined" color="inherit">
+            Tayb.ai
+          </Button>
+          <Button variant="contained" color="success" onClick={logout}>
+            Logout
+          </Button>
+        </Box>
         ) : (
           <Box sx={{ display: 'flex', gap: 2 }}>
             <Button component={Link} to="/register" variant="outlined" color="inherit">
