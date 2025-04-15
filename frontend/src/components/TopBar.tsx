@@ -26,13 +26,20 @@ const TopBar: React.FC = () => {
       }}
     >
       {user ? (
-        <Button
-          variant="contained"
-          color="success"
-          onClick={handleLogout}
-        >
-          Logout
-        </Button>
+        <div>
+            <Button
+            variant="contained"
+            color="success"
+            onClick={handleLogout}
+            >
+            Logout
+            </Button>
+                
+
+            <Button component={Link} to="/chat" variant="outlined" color="inherit">
+                Tayb.ai
+            </Button>
+        </div>
       ) : (
         <>
           <Button

@@ -1,6 +1,6 @@
 # backend/app/main.py
 from fastapi import FastAPI
-from app.api import users, restaurants, auth
+from app.api import users, restaurants, auth, chat
 from app.models import Base
 from app.core.database import engine
 from fastapi.middleware.cors import CORSMiddleware
@@ -31,6 +31,7 @@ Base.metadata.create_all(bind=engine)
 app.include_router(users.router, prefix="/users", tags=["users"])
 app.include_router(restaurants.router, prefix="/restaurants", tags=["restaurants"])
 app.include_router(auth.router, tags=["auth"]) 
+app.include_router(chat.router, tags=["tayb.ai"])
 
 @app.get("/")
 def root():
