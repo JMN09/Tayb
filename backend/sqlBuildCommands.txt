@@ -7,18 +7,63 @@ VALUES
   ('Indian'),
   ('Japanese'),
   ('Other');
+  
 
-
-INSERT INTO restaurants (name, location, rating, cuisine_id, image_url)
+INSERT INTO restaurants
+        (name, location, rating, cuisine_id, image_url, description,
+         latitude, longitude)
 VALUES
-  ('Al Falamanki', 'Beirut', 5, 1, 'http://localhost:8000/assets/restaurants/Al_Falamanki.png'),
-  ('Em Sherif', 'Beirut', 4, 1, 'http://localhost:8000/assets/restaurants/Em_Sherif.png'),
-  ('Tavolina', 'Beirut', 4, 2, 'http://localhost:8000/assets/restaurants/Tavolina.png'),
-  ('Mondo', 'Jounieh', 3, 2, 'http://localhost:8000/assets/restaurants/Mondo.png'),
-  ('L’Escroc', 'Hazmieh', 4, 3, 'http://localhost:8000/assets/restaurants/LEscroc.png'),
-  ('Le Chef', 'Gemmayzeh', 5, 3, 'http://localhost:8000/assets/restaurants/Le_chef.png'),
-  ('Baan Thai', 'Jounieh', 4, 4, 'http://localhost:8000/assets/restaurants/le-baan-thai.png'),
-  ('Little India', 'Hamra', 4, 5, 'http://localhost:8000/assets/restaurants/Little_Indian.png'),
-  ('Osaka Sushi', 'Achrafieh', 5, 6, 'http://localhost:8000/assets/restaurants/Osaka.png'),
-  ('Soto', 'Dbayeh', 4, 6, 'http://localhost:8000/assets/restaurants/soto-gemayzeh.png'),
-  ('Snack el 7ay', 'Tripoli', 3, 7, 'http://localhost:8000/assets/restaurants/Snack_el_7ay.png');
+  ('Al Falamanki', 'Beirut',   5, 1,
+   'http://localhost:8000/assets/restaurants/Al_Falamanki.png',
+   'Garden‑style Lebanese mezze and grill, Sodeco',
+   33.886944, 35.508611),
+
+  ('Em Sherif',    'Beirut',   4, 1,
+   'http://localhost:8000/assets/restaurants/Em_Sherif.png',
+   'Upscale traditional Lebanese dining on Damascus Street, Monot',
+   33.888920, 35.507400),
+
+  ('Tavolina',     'Beirut',   4, 2,
+   'http://localhost:8000/assets/restaurants/Tavolina.png',
+   'Casual Italian trattoria on Rue Pharoun, Mar Mikhael',
+   33.901000, 35.519200),
+
+  ('Mondo',        'Jounieh',  3, 2,
+   'http://localhost:8000/assets/restaurants/Mondo.png',
+   'Seaside Italian spot in Haret Sakhr, Jounieh',
+   33.980830, 35.617780),
+
+  ('L''Escroc',    'Antelias', 4, 3,
+   'http://localhost:8000/assets/restaurants/LEscroc.png',
+   'French‑inspired bistro on the Antelias highway',
+   33.918640, 35.588220),
+
+  ('Le Chef',      'Gemmayzeh',5, 3,
+   'http://localhost:8000/assets/restaurants/Le_chef.png',
+   'Legendary home‑style Lebanese eatery on Gouraud Street',
+   33.895042, 35.515040),
+
+  ('Baan Thai',    'Jounieh',  4, 4,
+   'http://localhost:8000/assets/restaurants/le-baan-thai.png',
+   'Authentic Thai cuisine with bay view, Jounieh',
+   33.980830, 35.617780),
+
+  ('Little India', 'Hamra',    4, 5,
+   'http://localhost:8000/assets/restaurants/Little_Indian.png',
+   'Colourful curry house just off Hamra Street',
+   33.896249, 35.483044),
+
+  ('Osaka Sushi',  'Achrafieh',5, 6,
+   'http://localhost:8000/assets/restaurants/Osaka.png',
+   'Modern Japanese sushi lounge in Achrafieh',
+   33.887558, 35.520756),
+
+  ('Soto',         'Dbayeh',   4, 6,
+   'http://localhost:8000/assets/restaurants/soto-gemayzeh.png',
+   'Trendy Asian‑fusion and sushi bar in Le Mall Dbayeh',
+   33.929814, 35.589262),
+
+  ('Snack el 7ay', 'Tripoli',  3, 7,
+   'http://localhost:8000/assets/restaurants/Snack_el_7ay.png',
+   'Popular Lebanese street‑food joint in the old souks of Tripoli',
+   34.450000, 35.800000);

@@ -1,5 +1,5 @@
 # backend/app/models.py
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
+from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, Text, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -32,16 +32,17 @@ class Cuisine(Base):
 class Restaurant(Base):
     __tablename__ = "restaurants"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(100), nullable=False)
-    location = Column(String(100))
-    image_url = Column(String(255))
-    rating = Column(Integer, default=0)
+    id          = Column(Integer, primary_key=True, index=True)
+    name        = Column(String(100), nullable=False)
+    location    = Column(String(100))          # e.g. “Hamra”
+    image_url   = Column(String(255))
+    rating      = Column(Integer, default=0)
+    description = Column(Text)                 # 🆕 free‑text
+    latitude    = Column(Float)                # 🆕 map coord
+    longitude   = Column(Float)                # 🆕 map coord
 
-    cuisine_id = Column(Integer, ForeignKey("cuisines.id"), nullable=False)
-
-    # Relationship to Cuisine
-    cuisine = relationship("Cuisine", back_populates="restaurants")
+    cuisine_id  = Column(Integer, ForeignKey("cuisines.id"), nullable=False)
+    cuisine     = relationship("Cuisine", back_populates="restaurants")
 
     def __repr__(self):
         return f"<Restaurant id={self.id} name={self.name}>"
@@ -53,9 +54,11 @@ class Restaurant(Base):
             "location": self.location,
             "image_url": self.image_url,
             "rating": self.rating,
-            "cuisine_id": self.cuisine_id
+            "description": self.description,
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+            "cuisine_id": self.cuisine_id,
         }
-
 
 class Banner(Base):
     __tablename__ = "banners"
