@@ -2,23 +2,21 @@ import axios from 'axios';
 
 const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
-export async function createUser(
-  username: string,
-  email: string,
-  password: string
-): Promise<User> {
-  const res = await axios.post<User>(`${API_BASE}/users/`, {
+export async function createUser(username: string, email: string, password: string, is_restaurant: boolean) {
+  const response = await axios.post('http://localhost:8000/users/', {
     username,
     email,
     password,
+    is_restaurant
   });
-  return res.data;
+  return response.data;
 }
 
 export interface User {
     id: number;
     username: string;
     email: string;
+    is_restaurant: boolean;
 }
 
 export async function getRestaurants() {

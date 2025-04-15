@@ -25,7 +25,8 @@ def create_user(user_data: UserCreate, db: Session = Depends(get_db)):
     user = models.User(
         username=user_data.username,
         email=user_data.email,
-        password_hash=user_data.password  # you would actually hash this
+        password_hash=user_data.password,  # you would actually hash this
+        is_restaurant=user_data.is_restaurant
     )
     db.add(user)
     db.commit()

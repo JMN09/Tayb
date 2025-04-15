@@ -1,5 +1,5 @@
 # backend/app/models.py
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -12,9 +12,11 @@ class User(Base):
     username = Column(String(100), unique=True, index=True)
     email = Column(String(100), unique=True, index=True)
     password_hash = Column(String(200))
+    is_restaurant = Column(Boolean, default=False)
 
     def __repr__(self):
-        return f"<User id={self.id} username={self.username}>"
+        return f"<User id={self.id} username={self.username} is_restaurant={self.is_restaurant}>"
+
 
 class Cuisine(Base):
     __tablename__ = "cuisines"
