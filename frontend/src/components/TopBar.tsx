@@ -1,9 +1,18 @@
 // src/components/TopBar.tsx
 import React from 'react';
 import { Button, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const TopBar: React.FC = () => {
+  const { user, logout } = useAuth();   // ← auth context
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();           // clear context + localStorage
+    navigate('/');      // return to homepage
+  };
+
   return (
     <Box
       sx={{
@@ -16,22 +25,34 @@ const TopBar: React.FC = () => {
         gap: 2,
       }}
     >
-      <Button
-        component={Link}
-        to="/register"
-        variant="outlined"
-        color="inherit"
-      >
-        Register
-      </Button>
-      <Button
-        component={Link}
-        to="/login"
-        variant="contained"
-        color="success"
-      >
-        Login
-      </Button>
+      {user ? (
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleLogout}
+        >
+          Logout
+        </Button>
+      ) : (
+        <>
+          <Button
+            component={Link}
+            to="/register"
+            variant="outlined"
+            color="inherit"
+          >
+            Register
+          </Button>
+          <Button
+            component={Link}
+            to="/login"
+            variant="contained"
+            color="success"
+          >
+            Login
+          </Button>
+        </>
+      )}
     </Box>
   );
 };

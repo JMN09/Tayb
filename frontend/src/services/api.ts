@@ -23,3 +23,8 @@ export async function getRestaurants() {
   const res = await fetch('http://localhost:8000/restaurants/');
   return await res.json();
 }
+
+export async function loginUser(email: string, password: string) {
+  const res = await axios.post('http://localhost:8000/login', { email, password });
+  return res.data;        // expected to be the User object
+}
