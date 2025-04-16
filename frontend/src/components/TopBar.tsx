@@ -39,6 +39,15 @@ const TopBar: React.FC = () => {
             Browse
           </Button>
 
+          <Button 
+            component={Link} 
+            to="/map" 
+            variant="outlined" 
+            color="inherit"
+          >
+            Map
+          </Button>
+
           <Button component={Link} to="/chat" variant="outlined" color="inherit">
             Tayb.ai
           </Button>

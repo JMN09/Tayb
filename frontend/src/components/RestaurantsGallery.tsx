@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import CardActionArea from "@mui/material/CardActionArea";
 import Grid from "@mui/material/Grid";
 import StarIcon from "@mui/icons-material/Star";
 import { getRestaurants } from "../services/api";
@@ -62,16 +63,18 @@ export const RestaurantsGallery: React.FC = () => {
         {restaurants.map((r) => (
           <Grid item key={r.id} xs={12} sm={6} md={4} lg={3}>
             <Card sx={{ maxWidth: 300, mx: "auto" }}>
-              <CardMedia component="img" height="160" image={r.image_url} alt={r.name} />
-              <CardContent sx={{ textAlign: "center" }}>
-                <Typography variant="h6" component="div" fontWeight={600}>
-                  {r.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" fontStyle="italic">
-                  {r.location}
-                </Typography>
-                <StarRating value={r.rating} />
-              </CardContent>
+              <CardActionArea component={RouterLink} to={`/restaurant/${r.id}`}>
+                <CardMedia component="img" height="160" image={r.image_url} alt={r.name} />
+                <CardContent sx={{ textAlign: "center" }}>
+                  <Typography variant="h6" component="div" fontWeight={600}>
+                    {r.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" fontStyle="italic">
+                    {r.location}
+                  </Typography>
+                  <StarRating value={r.rating} />
+                </CardContent>
+              </CardActionArea>
             </Card>
           </Grid>
         ))}

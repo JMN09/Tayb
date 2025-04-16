@@ -24,6 +24,10 @@ const Navbar: React.FC = () => {
           <Button component={Link} to="/browse" variant="outlined" color="inherit">
             Browse
           </Button>
+          
+          <Button component={Link} to="/map" variant="outlined" color="inherit">
+            Map
+          </Button>
       
           <Button component={Link} to="/chat" variant="outlined" color="inherit">
             Tayb.ai
